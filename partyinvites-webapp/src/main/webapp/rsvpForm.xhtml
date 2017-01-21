@@ -17,20 +17,21 @@
 		</div>
 		<div>
 			<h:outputLabel for="email">Your email:</h:outputLabel>
-			<h:inputText id="email" />
+			<h:inputText id="email" value="#{rsvpFormController.guestResponse.email}"/>
 		</div>
 		<div>
 			<h:outputLabel for="phone">Your phone:</h:outputLabel>
-			<h:inputText id="phone" />
+			<h:inputText id="phone" value="#{rsvpFormController.guestResponse.phone}"/>
 		</div>
 		<div>
 			<h:outputLabel for="willAttend">Will you attend?</h:outputLabel>
-			<h:selectOneRadio id="willAttend">
+			<h:selectOneRadio id="willAttend" value="#{rsvpFormController.guestResponse.willAttend}">
 				<f:selectItem itemValue="true" itemLabel="Yes" />
 				<f:selectItem itemValue="false" itemLabel="No" />
 			</h:selectOneRadio>
 		</div>
-		<h:commandButton value="Submit RSVP" />
+		<h:commandButton value="Submit RSVP" 
+			action="#{rsvpFormController.submitForm()}"/>
 	
 	</h:form>
 	

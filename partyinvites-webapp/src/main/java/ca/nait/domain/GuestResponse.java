@@ -1,6 +1,7 @@
 package ca.nait.domain;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -15,6 +16,7 @@ public class GuestResponse {
 	private String email;		// generate getter/setter
 	
 	@NotBlank(message="Please enter your phone number")
+	@Pattern(regexp="^[2-9]\\d{2}-\\d{3}-\\d{4}$", message="Please enter a valid phone number")
 	private String phone;		// generate getter/setter
 	
 	@NotNull(message="Please select whether you'll attend")
@@ -47,5 +49,10 @@ public class GuestResponse {
 	}
 	
 	
-
+	@Override
+	public String toString() {
+		return "GuestResponse [name=" + name + ", email=" + email + ", phone=" + phone + ", willAttend=" + willAttend
+				+ "]";
+	}
+	
 }
